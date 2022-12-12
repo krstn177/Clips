@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 body {
-    background-color: #161d31;
+    background-color: #001233;
   }
   
   .material-icons.text-base {
@@ -12,11 +12,15 @@ body {
   }
   
   .bg-secondary {
-    background-color: #283046;
+    background-color: #FF595A;
+  }
+
+  .bg-nav {
+    background-color: #000718;
   }
   
   .bg-gradient {
-    background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
+    background: linear-gradient(132deg, #2272FF, #FF595A, #001233);
     background-size: 400% 400%;
     animation: gradient 10s ease infinite;
   }
@@ -69,7 +73,7 @@ body {
   .latest:after, .latest:before {
     content: " ";
     display: block;
-    border-bottom: 3px solid #fff;
+    border-bottom: 3px solid #FF595A;
   }
   
   .ghost {

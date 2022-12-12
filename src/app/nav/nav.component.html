@@ -1,20 +1,28 @@
   <!-- Header -->
-  <header id="header" class="bg-secondary">
+  <header id="header" class="bg-nav">
     <nav class="container mx-auto flex justify-start items-center py-8 px-4">
       <!-- App Name -->
-      <a class="text-3xl text-indigo-400 font-bold uppercase mr-4" routerLink="/">Highs</a>
+      <a class="text-3xl text-coral-red font-bold uppercase mr-4" routerLink="/">Highs</a>
 
       <div class="flex flex-grow items-center">
         <!-- Primary Navigation -->
         <ul class="flex flex-row mt-1">
           <!-- Navigation Links -->
+          <li>
+            <a class="px-2" routerLink="/" 
+                routerLinkActive="text-coral-red" 
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+              Home
+              </a>
+          </li>
           <li *ngIf="!(auth.isAuthenticated$ | async); else authLinks">
             <a class="px-2" href="#" (click)="openModal($event)">Login / Register</a>
           </li>
           <ng-template #authLinks>
             <li>
               <a class="px-2" routerLink="/manage"
-              routerLinkActive="text-indigo-400"
+              routerLinkActive="text-coral-red"
               [routerLinkActiveOptions]="{ exact: true }"
               [queryParams]="{ sort: '1' }" >
               Manage
@@ -22,7 +30,7 @@
             </li>
             <li>
               <a class="px-2" routerLink="/upload" 
-                routerLinkActive="text-indigo-400" 
+                routerLinkActive="text-coral-red" 
                 [routerLinkActiveOptions]="{ exact: true }"
               >
               Upload
@@ -33,9 +41,9 @@
             </li>
           </ng-template>
 
-          <li routerLinkActive="text-indigo-400">
+          <li routerLinkActive="text-coral-red">
             <a class="px-2" routerLink="/about"
-            routerLinkActive="text-indigo-400">
+            routerLinkActive="text-coral-red">
             About
             </a>
           </li>
@@ -48,14 +56,7 @@
                 alt="en" width="22" height="14" class="inline-block">
               <span class="ml-1">English</span>
             </a>
-          </li>
-          <li style="display: none;">
-            <a href="#">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABDBAMAAACYZb3pAAAAHlBMVEUpQqK2q8384OL3qa/tKTkAI5Wrt9z////5t7ztKTlzpJCAAAAABXRSTlP++vjs1BQWlgsAAAAxSURBVHgBYmRAA4yKaAJCAugqQgHtyzENAAAAAiD7pzaDr4MfRVEURVGU36IoipK5FLWNJ6UFusbWAAAAAElFTkSuQmCC" 
-                alt="fr" width="22" height="14" class="inline-block">
-                <span class="ml-1">French</span>
-            </a>
-          </li>
+          </li>         
         </ul>
       </div>
     </nav>
