@@ -16,9 +16,18 @@
               Home
               </a>
           </li>
-          <li *ngIf="!(auth.isAuthenticated$ | async); else authLinks">
-            <a class="px-2" href="#" (click)="openModal($event)">Login / Register</a>
-          </li>
+          <ng-container *ngIf="!(auth.isAuthenticated$ | async); else authLinks">
+            <li>
+              <a class="px-2" routerLink="/login"
+              routerLinkActive="text-coral-red" 
+              [routerLinkActiveOptions]="{ exact: true }">Login</a>
+            </li>
+            <li>
+              <a class="px-2" routerLink="/register"
+              routerLinkActive="text-coral-red" 
+              [routerLinkActiveOptions]="{ exact: true }">Register</a>
+            </li>
+          </ng-container>
           <ng-template #authLinks>
             <li>
               <a class="px-2" routerLink="/manage"

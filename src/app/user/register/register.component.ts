@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import IUser from 'src/app/models/user.model';
 import { RegisterValidators } from '../validators/register-validators'
 import { EmailTaken } from '../validators/email-taken';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { EmailTaken } from '../validators/email-taken';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  constructor(private auth: AuthService, private emailTaken: EmailTaken) { }
+  constructor(private auth: AuthService, private emailTaken: EmailTaken, private router: Router) { }
 
   inSubmission = false;
 
@@ -65,5 +66,11 @@ export class RegisterComponent {
     }
     this.alertMsg = 'Success! Your account has been created.'
     this.alertColor = 'green';
+
+    this.auth.isAuthenticatedWithDelay$.subscribe(async (isAuthenticated) => {
+      if (isAuthenticated) {
+        await this.router.navigateByUrl('/');
+      }
+    });
   }
 }

@@ -1,7 +1,7 @@
  <!-- Main Content -->
  <section class="container mx-auto my-8 bg-secondary p-6">
     <div class="rounded relative flex flex-col">
-      <div class="font-bold mb-6">Upload Video</div>
+      <div class="font-bold mb-6 text-darker">Upload Video</div>
 
       <ng-container>
         <span *ngIf="!ffmpegService.isReady; else uploadEditorCtr" class="material-icons text-center text-6xl p-8 animate-spin">
@@ -21,11 +21,11 @@
           (mouseleave)="isDragover = false"
           (drop)="storeFile($event)"
           [ngClass]="{
-            'bg-indigo-400 border-indigo-400 border-solid': isDragover
+            'bg-darker border-darker border-solid': isDragover
           }"
             class="w-full px-10 py-40 rounded text-center cursor-pointer border border-dashed
               border-gray-400 transition duration-500 hover:text-white
-              hover:bg-indigo-400 hover:border-indigo-400 hover:border-solid text-xl">
+              hover:bg-darker hover:border-darker hover:border-solid text-xl">
             <h5>Drop your file here (mp4 only!)</h5>
             <span *ngIf="ffmpegService.isRunning"
             class="material-icons text-center text-6xl p-8 animate-spin">
@@ -45,7 +45,7 @@
           <!-- Form -->
           <form [formGroup]="uploadForm" (ngSubmit)="uploadFile()">
             <!-- Screenshots -->
-            <h2 class="mb-4 text-xl">Select a Thumbnail</h2>
+            <h2 class="mb-4 text-xl text-deep-blue">Select a Thumbnail</h2>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
               <div *ngFor="let screenshot of screenshots"
                class="border-8 cursor-pointer"
@@ -59,7 +59,7 @@
   
             <!-- Title -->
             <div class="mt-4">
-              <label class="block text-xl mb-4">Title</label>
+              <label class="block text-xl mb-4 text-deep-blue">Title</label>
               <app-input [control]="uploadForm.controls.title" 
               placeholder="Enter Title"></app-input>
             </div>
@@ -67,11 +67,11 @@
             <div class="mt-4 text-right">
               <button 
               type="submit" 
-              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm rounded-md text-white bg-indigo-600 focus:outline-none"
+              class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm rounded-md text-coral-red bg-deep-blue focus:outline-none"
               [disabled]="inSubmission"
               [ngClass]="{
                 'opacity-50':inSubmission,
-                'hover:bg-indigo-700': !inSubmission
+                'hover:bg-less-deep-blue': !inSubmission
               }">
                 Publish
               </button>

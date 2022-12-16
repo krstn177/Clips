@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +14,11 @@ export class LoginComponent implements OnInit {
     password: ''
   }
 
-  constructor(private auth: AngularFireAuth) { }
+  constructor(private auth: AngularFireAuth, private router: Router, private authService: AuthService) {
+  }
 
   ngOnInit(): void {
+    
   }
   inSubmission = false;
   showAlert = false;
@@ -39,6 +43,12 @@ export class LoginComponent implements OnInit {
     }
     this.alertMsg = 'Success! You successfully signed in to your account.'
     this.alertColor = 'green';
+
+    this.authService.isAuthenticatedWithDelay$.subscribe(async (isAuthenticated) => {
+      if (isAuthenticated) {
+        await this.router.navigateByUrl('/');
+      }
+    });
   }
 
 }
