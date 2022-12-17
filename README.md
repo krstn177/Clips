@@ -1,27 +1,27 @@
 # Clips
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+Also known as Highs, Clips is a platform for sharing gaming highlights with the world. You can create an account and post some of your highlights or just watch whatever you like. The clips you post must be under 25mb. The project is hosted on vercel. The link to the deployed version is clips-seven-green.vercel.app
 
-## Development server
+## Create an account
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+You can create an account on the /register page.
 
-## Code scaffolding
+## Login
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+You can login to your accout using email and password on the /login page.
 
-## Build
+## Upload clips
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+You can upload clips on the /clips page. You can drop the clip into the field for dropping a file or uploading it with the upload file button. Then three screenshots will be generated (using ffmpeg) from the first three seconds of the clip. Then you can choose the title of your highlight.
 
-## Running unit tests
+## Manage clips
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Managing the clips happens on the /manage page. There you can view all the clips you have uploaded. You can sort them by date from the most recent to oldest and vice versa. There you can delete or edit your clips. You can edit the title of the video, but not the screenshot.
 
-## Running end-to-end tests
+## Home
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+On the home page you will find the title, a quick description and a clips-list from the latest uploads. Initially there will be 6 loaded clips. As you scroll to the bottom of the page more clips will be loaded.
 
-## Further help
+## Logout
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Logout button on the navigation bar will sign you out of the application.
